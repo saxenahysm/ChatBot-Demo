@@ -9,7 +9,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MessageRVAdapter extends RecyclerView.Adapter {
 
@@ -42,9 +45,11 @@ public class MessageRVAdapter extends RecyclerView.Adapter {
         switch (modal.getSender()) {
             case "user":
                 ((UserViewHolder) holder).userTV.setText(modal.getMessage());
+                ((UserViewHolder) holder).tvUserTime.setText(getDateTime());
                 break;
             case "bot":
                 ((BotViewHolder) holder).botTV.setText(modal.getMessage());
+                ((BotViewHolder) holder).tvBotTime.setText(getDateTime());
                 break;
         }
     }
@@ -68,21 +73,29 @@ public class MessageRVAdapter extends RecyclerView.Adapter {
 
     public static class UserViewHolder extends RecyclerView.ViewHolder {
 
-        TextView userTV;
+        TextView userTV,tvUserTime;
 
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
             userTV = itemView.findViewById(R.id.idTVUser);
+            tvUserTime = itemView.findViewById(R.id.tv_time);
         }
     }
 
     public static class BotViewHolder extends RecyclerView.ViewHolder {
-
-        TextView botTV;
+        TextView botTV,tvBotTime;
 
         public BotViewHolder(@NonNull View itemView) {
             super(itemView);
+            tvBotTime = itemView.findViewById(R.id.tv_time);
             botTV = itemView.findViewById(R.id.idTVBot);
         }
+    }
+
+    private String getDateTime() {
+//        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+        Date date = new Date();
+        return dateFormat.format(date);
     }
 }
