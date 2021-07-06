@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="2dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/msg_rec"
+        android:orientation="vertical"
+        android:layout_marginRight="28dp">
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginVertical="4dp"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:layout_marginLeft="10dp">
+
+            <TextView
+                android:id="@+id/idTVBot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="4dp"
+                android:paddingEnd="8dp"
+                android:text="Hii"
+                android:textColor="@color/teal_700"
+                android:textSize="14sp"
+                android:paddingRight="8dp"
+                android:paddingLeft="4dp" />
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
