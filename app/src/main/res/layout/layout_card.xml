@@ -2,34 +2,69 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:layout_margin="4dp"
-    app:cardElevation="2dp"
-    app:cardBackgroundColor="@color/white">
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/white"
+    app:cardElevation="2dp">
 
-    <androidx.appcompat.widget.LinearLayoutCompat android:layout_gravity="center"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
         android:orientation="horizontal"
-        android:padding="4dp" android:layout_marginHorizontal="8dp"
+        android:paddingVertical="8dp"
         app:cardElevation="2dp">
 
-        <ImageView android:src="@drawable/ic_launcher"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-             />
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_launcher" />
 
-        <TextView
-            android:layout_weight="1"    android:id="@+id/tv_card_number"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center" android:padding="6dp"
-            android:layout_marginHorizontal="12dp"
-            android:text="card 1"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+            <TextView
+                android:id="@+id/tv_card_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="12dp"
+                android:layout_weight="1"
+                android:padding="6dp"
+                android:text="card 1"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/txt_disc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="12dp"
+                android:layout_weight="1"
+                android:padding="6dp"
+                android:text="timekompas chatbot example"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:layout_width="24dp" android:visibility="gone"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_cancel"/>
+</LinearLayout>
+
+    </LinearLayout>
 </androidx.cardview.widget.CardView>

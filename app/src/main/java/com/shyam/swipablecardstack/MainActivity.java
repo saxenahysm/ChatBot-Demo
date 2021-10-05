@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,11 +30,12 @@ import static io.kommunicate.BuildConfig.APPLICATION_ID;
 
 public class MainActivity extends AppCompatActivity implements CardStack.CardEventListener {
     ArrayList<String> card_list;
-    CardStack cardstack;
+    public CardStack cardstack;
     SwipeCardAdapter swipe_card_adapter;
-//    public static final String APP_ID = "1f7bc132a3470cb6e01d34983a042381a";
-        public static final String APP_ID =APPLICATION_ID;
+    //    public static final String APP_ID = "1f7bc132a3470cb6e01d34983a042381a";
+    public static final String APP_ID = APPLICATION_ID;
     private static final String INVALID_APP_ID = "INVALID_APPLICATIONID";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,20 +63,20 @@ public class MainActivity extends AppCompatActivity implements CardStack.CardEve
 
     @Override
     public boolean swipeEnd(int section, float distance) {
-        Toast.makeText(this, "swipeEnd", Toast.LENGTH_SHORT).show();
         return true;
     }
 
     @Override
     public boolean swipeStart(int section, float distance) {
-        Toast.makeText(this, "swipeStart", Toast.LENGTH_SHORT).show();
+        Log.e("TAG", "swipeStart: section"+section+""+section );
+//        Toast.makeText(this, "swipeStar", Toast.LENGTH_SHORT).show();
         return true;
     }
 
     @Override
     public boolean swipeContinue(int section, float distanceX, float distanceY) {
-        Toast.makeText(this, "swipeContinue", Toast.LENGTH_SHORT).show();
-        return true;
+//        Toast.makeText(this, "swipeContinue", Toast.LENGTH_SHORT).show();
+        return false;
     }
 
     @Override
@@ -117,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements CardStack.CardEve
                 @Override
                 public void onFailure(RegistrationResponse registrationResponse, Exception exception) {
                     progressDialog.dismiss();
-                 //   createLoginErrorDialog(registrationResponse, exception);
+                    //   createLoginErrorDialog(registrationResponse, exception);
                 }
             });
         } catch (Exception e) {
@@ -125,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements CardStack.CardEve
         }
     }
 
-    public static class SwipeCardAdapter extends ArrayAdapter<String> {
+    public class SwipeCardAdapter extends ArrayAdapter<String> {
 
         ArrayList<String> card_list;
 
@@ -138,7 +140,11 @@ public class MainActivity extends AppCompatActivity implements CardStack.CardEve
         public View getView(int position, final View contentView, ViewGroup parent) {
 
             TextView tv_card_number = (TextView) (contentView.findViewById(R.id.tv_card_number));
+            TextView txt_disc = (TextView) (contentView.findViewById(R.id.txt_disc));
             tv_card_number.setText(card_list.get(position));
+            tv_card_number.setOnClickListener(v -> {
+                Toast.makeText(getContext(), " " + card_list.get(position), Toast.LENGTH_SHORT).show();
+            });
             return contentView;
         }
 

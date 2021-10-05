@@ -15,8 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/idLLMessage"
-        tools:listitem="@layout/right_chat_layout"
-        />
+        tools:listitem="@layout/right_chat_layout" />
 
     <LinearLayout
         android:id="@+id/idLLMessage"
@@ -41,7 +40,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:background="@color/white"
+            android:background="@color/purple_200"
             android:src="@android:drawable/ic_menu_send"
             app:tint="@color/teal_700" />
 
